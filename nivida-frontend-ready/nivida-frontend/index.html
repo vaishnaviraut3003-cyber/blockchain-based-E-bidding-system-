@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nivida | Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+<div class="login-shell">
+  <section class="login-brand">
+    <div class="brand-mark">◈</div>
+    <div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div>
+    <h1>Nivida · e-Procurement Portal</h1>
+    <p>Transparent Bidding<br>Secure Tomorrow</p>
+    <div class="trust-row"><span>Blockchain Powered</span><span>Tamper Proof</span><span>Public Trust</span></div>
+  </section>
+  <section class="login-card">
+    <div class="tabs"><button class="active">Login</button><button>Register</button></div>
+    <h2>Welcome Back</h2><p class="muted">Sign in to your account to continue</p>
+    <form id="loginForm">
+      <label>Email / Username</label><input id="loginUser" required placeholder="Enter your email or username">
+      <label>Password</label><input type="password" id="loginPassword" required placeholder="Enter your password">
+      <div class="remember"><label><input type="checkbox"> Remember me</label><a href="#">Forgot password?</a></div>
+      <button class="primary-btn" type="submit">Login</button>
+    </form>
+    <div class="or">Or continue with</div>
+    <button class="outline-btn" onclick="connectWallet()">🦊 Connect MetaMask</button>
+    <p class="small center">Don't have an account? <a href="#">Register here</a></p>
+  </section>
+</div>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/blockchain.js"></script>
+<script>
+document.getElementById("loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const user = document.getElementById("loginUser").value;
+  localStorage.setItem("nividaUser", user);
+  window.location.href = "dashboard.html";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nivida | Place Bid</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">◈</div><strong>Nivida</strong></div>
+  <nav>
+    <a href="dashboard.html" data-page="dashboard">⌂ <span>Dashboard</span></a>
+    <a href="tenders.html" data-page="tenders">▤ <span>Tenders</span></a>
+    <a href="my-bids.html" data-page="bids">♙ <span>Bidders</span></a>
+    <a href="audit.html" data-page="audit">◉ <span>Audit Trail</span></a>
+    <a href="reports.html" data-page="reports">▥ <span>Reports</span></a>
+    <a href="#" onclick="connectWallet();return false;">🦊 <span>MetaMask</span></a>
+    <a href="#" onclick="showHelp();return false;">? <span>Help</span></a>
+  </nav>
+</aside><div class="main"><div class="accessbar">Skip to main content <span>English &nbsp;|&nbsp; हिंदी</span></div><header class="topbar">
+  <div class="topbar-left"><div class="shield">◈</div><div><div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div><div class="portal-title">Nivida · e-Procurement Portal</div></div></div>
+  <div class="user-box"><div><strong>R. Deshmukh</strong><small>Procurement Officer · Zone II</small></div><div class="avatar">R</div></div>
+</header>
+<main class="content"><div class="page-heading"><div><h1>Place Bid</h1><p>Submit your bid for the selected tender</p></div></div>
+<div class="card tender-banner"><div><small>Selected Tender</small><h2 id="bidTender">Construction of New College Building</h2><span id="bidMeta">T-001 · PWD · Works</span></div><span class="badge open">Open</span></div>
+<div class="grid-2"><form class="card" id="bidForm"><h3>Bid Details</h3><label>Bid Amount (₹) *</label><input id="amount" type="number" required placeholder="Enter bid amount"><label>Technical Proposal</label><input id="proposal" type="file"><label class="check"><input id="terms" type="checkbox" required> I agree to the terms and conditions</label><button class="primary-btn" type="submit">Submit Bid</button></form>
+<section class="card hash-card"><h3>Bid Hash Information</h3><div class="hash-box"><small>SHA-256 Hash</small><code id="hash">Hash will be generated after submission</code></div><p class="muted">The bid hash acts as a fingerprint of the submitted bid. Store the hash in your backend and blockchain record.</p><div id="tx" class="hidden"><small>Blockchain Transaction</small><code id="txHash"></code></div></section></div>
+</main>
+<footer>Nivida · Blockchain-backed cryptographic audit trail <span>v4.18.2-SECURE</span></footer></div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/blockchain.js"></script><script src="js/app.js"></script><script>
+document.getElementById("bidForm").addEventListener("submit",async e=>{e.preventDefault();const payload={tender_id:new URLSearchParams(location.search).get("id")||"T-001",amount:Number(amount.value)};const hash=await sha256(JSON.stringify(payload));document.getElementById("hash").textContent=hash;try{const result=await apiPost(API_ENDPOINTS.bids,payload);if(result?.transaction_hash){tx.classList.remove("hidden");txHash.textContent=result.transaction_hash}}catch(_){}alert("Bid submitted. SHA-256 hash generated.");});
+</script></body></html>

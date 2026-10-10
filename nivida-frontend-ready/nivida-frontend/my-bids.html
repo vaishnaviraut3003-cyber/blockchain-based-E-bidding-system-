@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nivida | My Bids</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">◈</div><strong>Nivida</strong></div>
+  <nav>
+    <a href="dashboard.html" data-page="dashboard">⌂ <span>Dashboard</span></a>
+    <a href="tenders.html" data-page="tenders">▤ <span>Tenders</span></a>
+    <a href="my-bids.html" data-page="bids">♙ <span>Bidders</span></a>
+    <a href="audit.html" data-page="audit">◉ <span>Audit Trail</span></a>
+    <a href="reports.html" data-page="reports">▥ <span>Reports</span></a>
+    <a href="#" onclick="connectWallet();return false;">🦊 <span>MetaMask</span></a>
+    <a href="#" onclick="showHelp();return false;">? <span>Help</span></a>
+  </nav>
+</aside><div class="main"><div class="accessbar">Skip to main content <span>English &nbsp;|&nbsp; हिंदी</span></div><header class="topbar">
+  <div class="topbar-left"><div class="shield">◈</div><div><div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div><div class="portal-title">Nivida · e-Procurement Portal</div></div></div>
+  <div class="user-box"><div><strong>R. Deshmukh</strong><small>Procurement Officer · Zone II</small></div><div class="avatar">R</div></div>
+</header>
+<main class="content"><div class="page-heading"><div><h1>My Bids</h1><p>Track your submitted bids and their status</p></div></div>
+<section class="card"><table><thead><tr><th>Bid ID</th><th>Tender Title</th><th>Amount</th><th>Submitted On</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody id="bidsTable"></tbody></table></section>
+</main>
+<footer>Nivida · Blockchain-backed cryptographic audit trail <span>v4.18.2-SECURE</span></footer></div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/blockchain.js"></script><script src="js/app.js"></script><script>
+document.addEventListener("DOMContentLoaded",()=>{const bids=[["B-001","Construction of New College Building","₹12,50,000","18 Sep 2026","Submitted"],["B-002","Supply of Electrical Equipment","₹8,75,000","17 Sep 2026","Verified"],["B-003","Road Repair and Maintenance","₹15,20,000","15 Sep 2026","Pending"],["B-004","IT Infrastructure Setup","₹6,45,000","12 Sep 2026","Rejected"],["B-005","Office Furniture Supply","₹3,80,000","10 Sep 2026","Verified"]];bidsTable.innerHTML=bids.map(b=>`<tr>${b.slice(0,5).map((x,i)=>`<td>${i===4?`<span class="badge ${x.toLowerCase()}">${x}</span>`:x}</td>`).join("")}<td><a class="mini-btn" href="verification.html?bid=${b[0]}">View</a></td></tr>`).join("")});
+</script></body></html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nivida | Dashboard</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">◈</div><strong>Nivida</strong></div>
+  <nav>
+    <a href="dashboard.html" data-page="dashboard">⌂ <span>Dashboard</span></a>
+    <a href="tenders.html" data-page="tenders">▤ <span>Tenders</span></a>
+    <a href="my-bids.html" data-page="bids">♙ <span>Bidders</span></a>
+    <a href="audit.html" data-page="audit">◉ <span>Audit Trail</span></a>
+    <a href="reports.html" data-page="reports">▥ <span>Reports</span></a>
+    <a href="#" onclick="connectWallet();return false;">🦊 <span>MetaMask</span></a>
+    <a href="#" onclick="showHelp();return false;">? <span>Help</span></a>
+  </nav>
+</aside><div class="main"><div class="accessbar">Skip to main content <span>English &nbsp;|&nbsp; हिंदी</span></div><header class="topbar">
+  <div class="topbar-left"><div class="shield">◈</div><div><div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div><div class="portal-title">Nivida · e-Procurement Portal</div></div></div>
+  <div class="user-box"><div><strong>R. Deshmukh</strong><small>Procurement Officer · Zone II</small></div><div class="avatar">R</div></div>
+</header>
+<main class="content"><div class="page-heading"><div><h1>Dashboard</h1><p>Overview of your e-Procurement activities</p></div></div>
+<div class="stats-grid">
+  <div class="stat blue"><span>Total Tenders</span><strong id="totalTenders">12</strong><small>All registered tenders</small></div>
+  <div class="stat green"><span>Active Tenders</span><strong id="activeTenders">7</strong><small>Currently accepting bids</small></div>
+  <div class="stat gold"><span>Total Bids</span><strong id="totalBids">48</strong><small>Submitted bids</small></div>
+  <div class="stat purple"><span>Verified Records</span><strong id="verifiedRecords">36</strong><small>Blockchain verified</small></div>
+</div>
+<div class="grid-2">
+<section class="card"><div class="card-title"><h3>Recent Tenders</h3><a href="tenders.html">View All</a></div>
+<table><thead><tr><th>Title</th><th>Status</th><th>Deadline</th></tr></thead><tbody id="recentTenders"></tbody></table></section>
+<section class="card"><div class="card-title"><h3>Tender Status</h3></div><div class="donut"><div class="donut-inner">12<br><small>Total</small></div></div>
+<div class="legend"><span>● Open <b>7</b></span><span>● Upcoming <b>3</b></span><span>● Closed <b>2</b></span></div></section>
+</div>
+<div class="card notice"><strong>Blockchain Integrity</strong><p>Bid commitments are hashed before being recorded. Later verification compares the stored hash with the submitted bid data.</p><a href="verification.html">Open verification →</a></div>
+</main>
+<footer>Nivida · Blockchain-backed cryptographic audit trail <span>v4.18.2-SECURE</span></footer></div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/blockchain.js"></script><script src="js/app.js"></script><script>
+document.addEventListener("DOMContentLoaded", async()=>{const data=await getTenders();renderRecent(data.slice(0,5));});
+function renderRecent(items){document.getElementById("recentTenders").innerHTML=items.map(t=>`<tr><td><b>${t.title}</b><small>${t.id} · ${t.department}</small></td><td><span class="badge ${t.status.toLowerCase()}">${t.status}</span></td><td>${t.deadline}</td></tr>`).join("")}
+</script></body></html>

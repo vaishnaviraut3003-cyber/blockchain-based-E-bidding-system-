@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nivida | Audit Trail</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">◈</div><strong>Nivida</strong></div>
+  <nav>
+    <a href="dashboard.html" data-page="dashboard">⌂ <span>Dashboard</span></a>
+    <a href="tenders.html" data-page="tenders">▤ <span>Tenders</span></a>
+    <a href="my-bids.html" data-page="bids">♙ <span>Bidders</span></a>
+    <a href="audit.html" data-page="audit">◉ <span>Audit Trail</span></a>
+    <a href="reports.html" data-page="reports">▥ <span>Reports</span></a>
+    <a href="#" onclick="connectWallet();return false;">🦊 <span>MetaMask</span></a>
+    <a href="#" onclick="showHelp();return false;">? <span>Help</span></a>
+  </nav>
+</aside><div class="main"><div class="accessbar">Skip to main content <span>English &nbsp;|&nbsp; हिंदी</span></div><header class="topbar">
+  <div class="topbar-left"><div class="shield">◈</div><div><div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div><div class="portal-title">Nivida · e-Procurement Portal</div></div></div>
+  <div class="user-box"><div><strong>R. Deshmukh</strong><small>Procurement Officer · Zone II</small></div><div class="avatar">R</div></div>
+</header>
+<main class="content"><div class="page-heading"><div><h1>Audit Trail</h1><p>Complete record of all activities and blockchain events</p></div></div>
+<section class="card"><div class="toolbar"><input placeholder="⌕ Search by tender ID, user or event"><input type="date"><input type="date"><button class="outline-btn">Export</button></div>
+<table><thead><tr><th>Date & Time</th><th>Event</th><th>User</th><th>Tender ID</th><th>Details</th></tr></thead><tbody>
+<tr><td>18 Sep 2026, 14:32</td><td><b>Tender Created</b></td><td>R. Deshmukh</td><td>T-001</td><td>Construction of New College...</td></tr>
+<tr><td>17 Sep 2026, 15:20</td><td><b>Bid Submitted</b></td><td>S. Patil</td><td>T-001</td><td>Amount: ₹12,50,000</td></tr>
+<tr><td>17 Sep 2026, 15:10</td><td><b>Hash Generated</b></td><td>System</td><td>T-001</td><td>SHA-256: a3f8e29c...</td></tr>
+<tr><td>17 Sep 2026, 15:09</td><td><b>On Blockchain</b></td><td>System</td><td>T-001</td><td>Tx Hash: 0x9fa3...</td></tr>
+<tr><td>16 Sep 2026, 10:45</td><td><b>Tender Updated</b></td><td>R. Deshmukh</td><td>T-001</td><td>Deadline extended</td></tr>
+</tbody></table></section>
+</main>
+<footer>Nivida · Blockchain-backed cryptographic audit trail <span>v4.18.2-SECURE</span></footer></div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/blockchain.js"></script><script src="js/app.js"></script></body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nivida | Create Tender</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">◈</div><strong>Nivida</strong></div>
+  <nav>
+    <a href="dashboard.html" data-page="dashboard">⌂ <span>Dashboard</span></a>
+    <a href="tenders.html" data-page="tenders">▤ <span>Tenders</span></a>
+    <a href="my-bids.html" data-page="bids">♙ <span>Bidders</span></a>
+    <a href="audit.html" data-page="audit">◉ <span>Audit Trail</span></a>
+    <a href="reports.html" data-page="reports">▥ <span>Reports</span></a>
+    <a href="#" onclick="connectWallet();return false;">🦊 <span>MetaMask</span></a>
+    <a href="#" onclick="showHelp();return false;">? <span>Help</span></a>
+  </nav>
+</aside><div class="main"><div class="accessbar">Skip to main content <span>English &nbsp;|&nbsp; हिंदी</span></div><header class="topbar">
+  <div class="topbar-left"><div class="shield">◈</div><div><div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div><div class="portal-title">Nivida · e-Procurement Portal</div></div></div>
+  <div class="user-box"><div><strong>R. Deshmukh</strong><small>Procurement Officer · Zone II</small></div><div class="avatar">R</div></div>
+</header>
+<main class="content"><div class="page-heading"><div><h1>Create Tender</h1><p>Fill in the details to create a new tender</p></div></div>
+<form class="card form-card" id="tenderForm">
+<h3>Tender Details</h3>
+<div class="form-grid">
+<div><label>Tender Title *</label><input id="title" required placeholder="Enter tender title"></div>
+<div><label>Department *</label><select id="department" required><option value="">Select department</option><option>PWD</option><option>NIC</option><option>Education</option></select></div>
+<div><label>Tender Type *</label><select id="type" required><option>Works</option><option>Goods</option><option>Services</option></select></div>
+<div><label>Submission Deadline *</label><input id="deadline" type="date" required></div>
+<div class="full"><label>Description *</label><textarea id="description" required placeholder="Enter detailed description"></textarea></div>
+<div><label>Estimated Value (₹) *</label><input id="value" type="number" required placeholder="Enter amount"></div>
+</div>
+<div class="form-actions"><a class="outline-btn" href="tenders.html">Cancel</a><button class="primary-btn" type="submit">Create Tender</button></div>
+</form>
+</main>
+<footer>Nivida · Blockchain-backed cryptographic audit trail <span>v4.18.2-SECURE</span></footer></div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/blockchain.js"></script><script src="js/app.js"></script><script>
+document.getElementById("tenderForm").addEventListener("submit",async e=>{e.preventDefault();const payload={title:title.value,department:department.value,type:type.value,deadline:deadline.value,description:description.value,estimated_value:Number(value.value)};try{await apiPost(API_ENDPOINTS.tenders,payload);alert("Tender created successfully.");location.href="tenders.html"}catch(err){alert("Demo mode: tender created locally.");location.href="tenders.html"}});
+</script></body></html>

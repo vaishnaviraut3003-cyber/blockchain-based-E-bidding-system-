@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nivida | Bid Verification</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">◈</div><strong>Nivida</strong></div>
+  <nav>
+    <a href="dashboard.html" data-page="dashboard">⌂ <span>Dashboard</span></a>
+    <a href="tenders.html" data-page="tenders">▤ <span>Tenders</span></a>
+    <a href="my-bids.html" data-page="bids">♙ <span>Bidders</span></a>
+    <a href="audit.html" data-page="audit">◉ <span>Audit Trail</span></a>
+    <a href="reports.html" data-page="reports">▥ <span>Reports</span></a>
+    <a href="#" onclick="connectWallet();return false;">🦊 <span>MetaMask</span></a>
+    <a href="#" onclick="showHelp();return false;">? <span>Help</span></a>
+  </nav>
+</aside><div class="main"><div class="accessbar">Skip to main content <span>English &nbsp;|&nbsp; हिंदी</span></div><header class="topbar">
+  <div class="topbar-left"><div class="shield">◈</div><div><div class="eyebrow">DEPARTMENT OF PUBLIC WORKS & PROCUREMENT</div><div class="portal-title">Nivida · e-Procurement Portal</div></div></div>
+  <div class="user-box"><div><strong>R. Deshmukh</strong><small>Procurement Officer · Zone II</small></div><div class="avatar">R</div></div>
+</header>
+<main class="content"><div class="page-heading"><div><h1>Bid Verification</h1><p>Verify the authenticity of a bid using blockchain</p></div></div>
+<section class="card verify-search"><input id="verifyInput" placeholder="⌕ Enter Bid ID or Hash..."><button class="primary-btn" onclick="verifyBid()">Verify</button></section>
+<div id="verificationResult" class="verify-result hidden"><div class="verify-status">✓ VERIFIED</div><div class="grid-2"><section class="card"><h3>Bid Record</h3><div class="detail-list"><span>Bid ID <b id="vBid">B-002</b></span><span>Tender <b>Supply of Electrical Equipment</b></span><span>Bid Amount <b>₹8,75,000</b></span><span>Submitted On <b>17 Sep 2026, 14:32</b></span><span>SHA-256 Hash <code id="vHash"></code></span><span>Blockchain Tx Hash <code>0x9fa3e2a9d4b6f9c1...</code></span></div></section><section class="card success-panel"><div class="check-big">✓</div><h2>The bid is authentic</h2><p>Hash matches the stored record and no tampering was detected.</p><a href="#" class="outline-btn">View on Blockchain</a></section></div></div>
+</main>
+<footer>Nivida · Blockchain-backed cryptographic audit trail <span>v4.18.2-SECURE</span></footer></div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/blockchain.js"></script><script src="js/app.js"></script><script>
+async function verifyBid(){const input=document.getElementById("verifyInput").value||"B-002";const h=await sha256(input+"|nivida-demo");document.getElementById("vBid").textContent=input;document.getElementById("vHash").textContent=h;document.getElementById("verificationResult").classList.remove("hidden")}
+</script></body></html>
